@@ -1,24 +1,149 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище SportSchoolModelContainer" CdmEntityContainer="SportSchoolEntities1">
-    <EntitySetMapping Name="InfoSportsman">
-      <EntityTypeMapping TypeName="SportSchoolModel.InfoSportsman">
-        <MappingFragment StoreEntitySet="InfoSportsman">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Surname" ColumnName="Surname" />
-          <ScalarProperty Name="Age" ColumnName="Age" />
+  <EntityContainerMapping StorageEntityContainer="Хранилище HorseSchoolPPModelContainer" CdmEntityContainer="HorseSchoolPPEntities">
+    <EntitySetMapping Name="Breed">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.Breed">
+        <MappingFragment StoreEntitySet="Breed">
+          <ScalarProperty Name="BreedID" ColumnName="BreedID" />
+          <ScalarProperty Name="BreedName" ColumnName="BreedName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DivisionOfTheGroup">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.DivisionOfTheGroup">
+        <MappingFragment StoreEntitySet="DivisionOfTheGroup">
+          <ScalarProperty Name="DivisionOfTheGroupID" ColumnName="DivisionOfTheGroupID" />
+          <ScalarProperty Name="DivisionOfTheGroupName" ColumnName="DivisionOfTheGroupName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DosageFood">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.DosageFood">
+        <MappingFragment StoreEntitySet="DosageFood">
+          <ScalarProperty Name="DosageFoodID" ColumnName="DosageFoodID" />
+          <ScalarProperty Name="DosageQuantity" ColumnName="DosageQuantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feeding">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.Feeding">
+        <MappingFragment StoreEntitySet="Feeding">
+          <ScalarProperty Name="FeedingID" ColumnName="FeedingID" />
+          <ScalarProperty Name="HorseID" ColumnName="HorseID" />
+          <ScalarProperty Name="DosageFoodID" ColumnName="DosageFoodID" />
+          <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+          <ScalarProperty Name="TimeFeeding" ColumnName="TimeFeeding" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Food">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.Food">
+        <MappingFragment StoreEntitySet="Food">
+          <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+          <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Group">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.Group">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="CoachID" ColumnName="CoachID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Horse">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.Horse">
+        <MappingFragment StoreEntitySet="Horse">
+          <ScalarProperty Name="HorseID" ColumnName="HorseID" />
           <ScalarProperty Name="HorseName" ColumnName="HorseName" />
+          <ScalarProperty Name="HorseAge" ColumnName="HorseAge" />
+          <ScalarProperty Name="SuitID" ColumnName="SuitID" />
+          <ScalarProperty Name="BreedID" ColumnName="BreedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InfoCoach">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.InfoCoach">
+        <MappingFragment StoreEntitySet="InfoCoach">
+          <ScalarProperty Name="CoachID" ColumnName="CoachID" />
+          <ScalarProperty Name="CoachSurname" ColumnName="CoachSurname" />
+          <ScalarProperty Name="CoachName" ColumnName="CoachName" />
+          <ScalarProperty Name="CoachPatronymic" ColumnName="CoachPatronymic" />
+          <ScalarProperty Name="CoachAge" ColumnName="CoachAge" />
+          <ScalarProperty Name="CoachEmail" ColumnName="CoachEmail" />
+          <ScalarProperty Name="CoachPhone" ColumnName="CoachPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InfoGroup">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.InfoGroup">
+        <MappingFragment StoreEntitySet="InfoGroup">
+          <ScalarProperty Name="InfoGroupID" ColumnName="InfoGroupID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="SportsmanID" ColumnName="SportsmanID" />
+          <ScalarProperty Name="HorseID" ColumnName="HorseID" />
+          <ScalarProperty Name="DivisionOfTheGroupID" ColumnName="DivisionOfTheGroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InfoSportsman">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.InfoSportsman">
+        <MappingFragment StoreEntitySet="InfoSportsman">
+          <ScalarProperty Name="SportsmanID" ColumnName="SportsmanID" />
+          <ScalarProperty Name="SportsmanSurname" ColumnName="SportsmanSurname" />
+          <ScalarProperty Name="SportsmanName" ColumnName="SportsmanName" />
+          <ScalarProperty Name="SportsmanPatronymic" ColumnName="SportsmanPatronymic" />
+          <ScalarProperty Name="SportsmanAge" ColumnName="SportsmanAge" />
+          <ScalarProperty Name="SportsmanEmail" ColumnName="SportsmanEmail" />
+          <ScalarProperty Name="SportsmanPhone" ColumnName="SportsmanPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Space">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.Space">
+        <MappingFragment StoreEntitySet="Space">
+          <ScalarProperty Name="SpaceID" ColumnName="SpaceID" />
+          <ScalarProperty Name="SpaceName" ColumnName="SpaceName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suit">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.Suit">
+        <MappingFragment StoreEntitySet="Suit">
+          <ScalarProperty Name="SuitID" ColumnName="SuitID" />
+          <ScalarProperty Name="SuitName" ColumnName="SuitName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Training">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.Training">
+        <MappingFragment StoreEntitySet="Training">
+          <ScalarProperty Name="TrainingID" ColumnName="TrainingID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="SpaceID" ColumnName="SpaceID" />
+          <ScalarProperty Name="TimeTraining" ColumnName="TimeTraining" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="User">
-      <EntityTypeMapping TypeName="SportSchoolModel.User">
+      <EntityTypeMapping TypeName="HorseSchoolPPModel.User">
         <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Login" ColumnName="Login" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="InfoId" ColumnName="InfoId" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPatronymic" ColumnName="UserPatronymic" />
+          <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

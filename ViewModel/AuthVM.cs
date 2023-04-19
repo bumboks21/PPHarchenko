@@ -55,7 +55,7 @@ namespace SchoolApplication.ViewModel
             try
             {
 
-                var result = await DbStorage.DB_s.User.FirstOrDefaultAsync(user => user.Login == login && user.Password == password);
+                var result = await DbStorage.DB_s.User.FirstOrDefaultAsync(user => user.UserLogin == login && user.UserPassword == password);
 
                 _user = result;
 
@@ -82,7 +82,7 @@ namespace SchoolApplication.ViewModel
 
             if (await Authorize(Login, Password))
             {
-                var appWindow = new ApplicationWindow(_user);
+                var appWindow = new SelectWindow();
 
                 appWindow.Show();
 

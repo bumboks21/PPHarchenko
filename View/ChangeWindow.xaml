@@ -15,6 +15,8 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.ColumnSpan="4">
@@ -24,38 +26,58 @@
                        Margin="10"/>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <TextBlock Text="Введите имя спортсмена" 
+            <TextBlock Text="Введите фамилию спортсмена" 
                        FontSize="15" 
                        HorizontalAlignment="Center"/>
-            <TextBox Text="{Binding Name}" 
-                     Width="180" Height="30"
+            <TextBox Text="{Binding SportsmanSurname}" 
+                     Width="180" Height="20"
                      FontSize="15"
                      Margin="10" />
         </StackPanel>
         <StackPanel Grid.Row="2">
-            <TextBlock Text="Введите фамилию спортсмена" 
+            <TextBlock Text="Введите имя спортсмена" 
                        FontSize="15"
                        HorizontalAlignment="Center"/>
-            <TextBox Text="{Binding Surname}" 
-                     Width="180" Height="30"
+            <TextBox Text="{Binding SportsmanName}" 
+                     Width="180" Height="20"
                      FontSize="15"
                      Margin="10" />
         </StackPanel>
         <StackPanel Grid.Row="3">
-            <TextBlock Text="Введите возраст спортсмена"
+            <TextBlock Text="Введите отчество спортсмена"
                        FontSize="15"
                        HorizontalAlignment="Center"/>
-            <TextBox Text="{Binding Age}"
+            <TextBox Text="{Binding SportsmanPatronymic}"
                      FontSize="15"
-                     Width="180" Height="30"
+                     Width="180" Height="20"
                      Margin="10" />
         </StackPanel>
         <StackPanel Grid.Row="4">
-            <TextBlock Text="Введите имя лошади, закрепленной за спортсменом"
+            <TextBlock Text="Введите возраст спортсмена"
                        FontSize="15"
                        HorizontalAlignment="Center"/>
-            <TextBox Text="{Binding HorseName}"
-                     Width="180" Height="30"
+            <TextBox Text="{Binding SportsmanAge}"
+                     Width="180" Height="20"
+                     FontSize="15"
+                     Margin="10" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="5">
+            <TextBlock Text="Введите эл. почту спортсмена"
+                       FontSize="15"
+                       HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding SportsmanEmail}"
+                     Width="180" Height="20"
+                     FontSize="15"
+                     Margin="10" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="6">
+            <TextBlock Text="Введите телефон спортсмена"
+                       FontSize="15"
+                       HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding SportsmanPhone}"
+                     Width="180" Height="20"
                      FontSize="15"
                      Margin="10" />
         </StackPanel>
@@ -65,8 +87,8 @@
                 Name="BtnSend"
                 FontSize="20"
                 Click="BtnSend_Click"
-                Background="RoyalBlue"
+              Background="#FF5BDF4F"
                 Content="Внести данные" 
-                Grid.Row="5"/>
+                Grid.Row="7"/>
     </Grid>
 </Window>

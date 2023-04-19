@@ -4,43 +4,360 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище SportSchoolModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище HorseSchoolPPModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Breed">
+          <Key>
+            <PropertyRef Name="BreedID" />
+          </Key>
+          <Property Name="BreedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BreedName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DivisionOfTheGroup">
+          <Key>
+            <PropertyRef Name="DivisionOfTheGroupID" />
+          </Key>
+          <Property Name="DivisionOfTheGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DivisionOfTheGroupName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DosageFood">
+          <Key>
+            <PropertyRef Name="DosageFoodID" />
+          </Key>
+          <Property Name="DosageFoodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DosageQuantity" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feeding">
+          <Key>
+            <PropertyRef Name="FeedingID" />
+          </Key>
+          <Property Name="FeedingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HorseID" Type="int" Nullable="false" />
+          <Property Name="DosageFoodID" Type="int" Nullable="false" />
+          <Property Name="FoodID" Type="int" Nullable="false" />
+          <Property Name="TimeFeeding" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="FoodID" />
+          </Key>
+          <Property Name="FoodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FoodName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CoachID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Horse">
+          <Key>
+            <PropertyRef Name="HorseID" />
+          </Key>
+          <Property Name="HorseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HorseName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HorseAge" Type="int" Nullable="false" />
+          <Property Name="SuitID" Type="int" Nullable="false" />
+          <Property Name="BreedID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InfoCoach">
+          <Key>
+            <PropertyRef Name="CoachID" />
+          </Key>
+          <Property Name="CoachID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CoachSurname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CoachName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CoachPatronymic" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CoachAge" Type="int" Nullable="false" />
+          <Property Name="CoachEmail" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CoachPhone" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InfoGroup">
+          <Key>
+            <PropertyRef Name="InfoGroupID" />
+          </Key>
+          <Property Name="InfoGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="SportsmanID" Type="int" Nullable="false" />
+          <Property Name="HorseID" Type="int" Nullable="false" />
+          <Property Name="DivisionOfTheGroupID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="InfoSportsman">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="SportsmanID" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="30" />
-          <Property Name="Surname" Type="nvarchar" MaxLength="30" />
-          <Property Name="Age" Type="int" Nullable="false" />
-          <Property Name="HorseName" Type="nvarchar" MaxLength="30" />
+          <Property Name="SportsmanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SportsmanSurname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SportsmanName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SportsmanPatronymic" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SportsmanAge" Type="int" Nullable="false" />
+          <Property Name="SportsmanEmail" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SportsmanPhone" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Space">
+          <Key>
+            <PropertyRef Name="SpaceID" />
+          </Key>
+          <Property Name="SpaceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpaceName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Suit">
+          <Key>
+            <PropertyRef Name="SuitID" />
+          </Key>
+          <Property Name="SuitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SuitName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Training">
+          <Key>
+            <PropertyRef Name="TrainingID" />
+          </Key>
+          <Property Name="TrainingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="SpaceID" Type="int" Nullable="false" />
+          <Property Name="TimeTraining" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Login" Type="nvarchar" MaxLength="30" />
-          <Property Name="Password" Type="nvarchar" MaxLength="30" />
-          <Property Name="InfoId" Type="int" />
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserSurname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserPatronymic" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserLogin" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserPassword" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserRoleID" Type="int" />
         </EntityType>
-        <Association Name="FK__User__InfoId__398D8EEE">
-          <End Role="InfoSportsman" Type="Self.InfoSportsman" Multiplicity="0..1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
+        <Association Name="FK__Feeding__DosageF__59FA5E80">
+          <End Role="DosageFood" Type="Self.DosageFood" Multiplicity="1" />
+          <End Role="Feeding" Type="Self.Feeding" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="InfoSportsman">
-              <PropertyRef Name="Id" />
+            <Principal Role="DosageFood">
+              <PropertyRef Name="DosageFoodID" />
             </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="InfoId" />
+            <Dependent Role="Feeding">
+              <PropertyRef Name="DosageFoodID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище SportSchoolModelContainer">
+        <Association Name="FK__Feeding__FoodID__5AEE82B9">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="Feeding" Type="Self.Feeding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodID" />
+            </Principal>
+            <Dependent Role="Feeding">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feeding__HorseID__59063A47">
+          <End Role="Horse" Type="Self.Horse" Multiplicity="1" />
+          <End Role="Feeding" Type="Self.Feeding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horse">
+              <PropertyRef Name="HorseID" />
+            </Principal>
+            <Dependent Role="Feeding">
+              <PropertyRef Name="HorseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Group__CoachID__4CA06362">
+          <End Role="InfoCoach" Type="Self.InfoCoach" Multiplicity="1" />
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoCoach">
+              <PropertyRef Name="CoachID" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="CoachID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horse__BreedID__440B1D61">
+          <End Role="Breed" Type="Self.Breed" Multiplicity="1" />
+          <End Role="Horse" Type="Self.Horse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Breed">
+              <PropertyRef Name="BreedID" />
+            </Principal>
+            <Dependent Role="Horse">
+              <PropertyRef Name="BreedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horse__SuitID__4316F928">
+          <End Role="Suit" Type="Self.Suit" Multiplicity="1" />
+          <End Role="Horse" Type="Self.Horse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suit">
+              <PropertyRef Name="SuitID" />
+            </Principal>
+            <Dependent Role="Horse">
+              <PropertyRef Name="SuitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoGroup__Divis__52593CB8">
+          <End Role="DivisionOfTheGroup" Type="Self.DivisionOfTheGroup" Multiplicity="1" />
+          <End Role="InfoGroup" Type="Self.InfoGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DivisionOfTheGroup">
+              <PropertyRef Name="DivisionOfTheGroupID" />
+            </Principal>
+            <Dependent Role="InfoGroup">
+              <PropertyRef Name="DivisionOfTheGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoGroup__Group__4F7CD00D">
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="InfoGroup" Type="Self.InfoGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="InfoGroup">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoGroup__Horse__5165187F">
+          <End Role="Horse" Type="Self.Horse" Multiplicity="1" />
+          <End Role="InfoGroup" Type="Self.InfoGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horse">
+              <PropertyRef Name="HorseID" />
+            </Principal>
+            <Dependent Role="InfoGroup">
+              <PropertyRef Name="HorseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoGroup__Sport__5070F446">
+          <End Role="InfoSportsman" Type="Self.InfoSportsman" Multiplicity="1" />
+          <End Role="InfoGroup" Type="Self.InfoGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoSportsman">
+              <PropertyRef Name="SportsmanID" />
+            </Principal>
+            <Dependent Role="InfoGroup">
+              <PropertyRef Name="SportsmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Training__GroupI__5535A963">
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="Training" Type="Self.Training" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Training">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Training__SpaceI__5629CD9C">
+          <End Role="Space" Type="Self.Space" Multiplicity="1" />
+          <End Role="Training" Type="Self.Training" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Space">
+              <PropertyRef Name="SpaceID" />
+            </Principal>
+            <Dependent Role="Training">
+              <PropertyRef Name="SpaceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__UserRoleID__5DCAEF64">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище HorseSchoolPPModelContainer">
+          <EntitySet Name="Breed" EntityType="Self.Breed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DivisionOfTheGroup" EntityType="Self.DivisionOfTheGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DosageFood" EntityType="Self.DosageFood" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feeding" EntityType="Self.Feeding" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Horse" EntityType="Self.Horse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoCoach" EntityType="Self.InfoCoach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoGroup" EntityType="Self.InfoGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InfoSportsman" EntityType="Self.InfoSportsman" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Space" EntityType="Self.Space" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suit" EntityType="Self.Suit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Training" EntityType="Self.Training" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__User__InfoId__398D8EEE" Association="Self.FK__User__InfoId__398D8EEE">
+          <AssociationSet Name="FK__Feeding__DosageF__59FA5E80" Association="Self.FK__Feeding__DosageF__59FA5E80">
+            <End Role="DosageFood" EntitySet="DosageFood" />
+            <End Role="Feeding" EntitySet="Feeding" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feeding__FoodID__5AEE82B9" Association="Self.FK__Feeding__FoodID__5AEE82B9">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="Feeding" EntitySet="Feeding" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feeding__HorseID__59063A47" Association="Self.FK__Feeding__HorseID__59063A47">
+            <End Role="Horse" EntitySet="Horse" />
+            <End Role="Feeding" EntitySet="Feeding" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Group__CoachID__4CA06362" Association="Self.FK__Group__CoachID__4CA06362">
+            <End Role="InfoCoach" EntitySet="InfoCoach" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horse__BreedID__440B1D61" Association="Self.FK__Horse__BreedID__440B1D61">
+            <End Role="Breed" EntitySet="Breed" />
+            <End Role="Horse" EntitySet="Horse" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horse__SuitID__4316F928" Association="Self.FK__Horse__SuitID__4316F928">
+            <End Role="Suit" EntitySet="Suit" />
+            <End Role="Horse" EntitySet="Horse" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoGroup__Divis__52593CB8" Association="Self.FK__InfoGroup__Divis__52593CB8">
+            <End Role="DivisionOfTheGroup" EntitySet="DivisionOfTheGroup" />
+            <End Role="InfoGroup" EntitySet="InfoGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoGroup__Group__4F7CD00D" Association="Self.FK__InfoGroup__Group__4F7CD00D">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="InfoGroup" EntitySet="InfoGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoGroup__Horse__5165187F" Association="Self.FK__InfoGroup__Horse__5165187F">
+            <End Role="Horse" EntitySet="Horse" />
+            <End Role="InfoGroup" EntitySet="InfoGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoGroup__Sport__5070F446" Association="Self.FK__InfoGroup__Sport__5070F446">
             <End Role="InfoSportsman" EntitySet="InfoSportsman" />
+            <End Role="InfoGroup" EntitySet="InfoGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Training__GroupI__5535A963" Association="Self.FK__Training__GroupI__5535A963">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Training" EntitySet="Training" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Training__SpaceI__5629CD9C" Association="Self.FK__Training__SpaceI__5629CD9C">
+            <End Role="Space" EntitySet="Space" />
+            <End Role="Training" EntitySet="Training" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__UserRoleID__5DCAEF64" Association="Self.FK__User__UserRoleID__5DCAEF64">
+            <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
@@ -48,46 +365,387 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SportSchoolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="HorseSchoolPPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Breed">
+          <Key>
+            <PropertyRef Name="BreedID" />
+          </Key>
+          <Property Name="BreedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BreedName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Horse" Relationship="Self.FK__Horse__BreedID__440B1D61" FromRole="Breed" ToRole="Horse" />
+        </EntityType>
+        <EntityType Name="DivisionOfTheGroup">
+          <Key>
+            <PropertyRef Name="DivisionOfTheGroupID" />
+          </Key>
+          <Property Name="DivisionOfTheGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DivisionOfTheGroupName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="InfoGroup" Relationship="Self.FK__InfoGroup__Divis__52593CB8" FromRole="DivisionOfTheGroup" ToRole="InfoGroup" />
+        </EntityType>
+        <EntityType Name="DosageFood">
+          <Key>
+            <PropertyRef Name="DosageFoodID" />
+          </Key>
+          <Property Name="DosageFoodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DosageQuantity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Feeding" Relationship="Self.FK__Feeding__DosageF__59FA5E80" FromRole="DosageFood" ToRole="Feeding" />
+        </EntityType>
+        <EntityType Name="Feeding">
+          <Key>
+            <PropertyRef Name="FeedingID" />
+          </Key>
+          <Property Name="FeedingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HorseID" Type="Int32" Nullable="false" />
+          <Property Name="DosageFoodID" Type="Int32" Nullable="false" />
+          <Property Name="FoodID" Type="Int32" Nullable="false" />
+          <Property Name="TimeFeeding" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DosageFood" Relationship="Self.FK__Feeding__DosageF__59FA5E80" FromRole="Feeding" ToRole="DosageFood" />
+          <NavigationProperty Name="Food" Relationship="Self.FK__Feeding__FoodID__5AEE82B9" FromRole="Feeding" ToRole="Food" />
+          <NavigationProperty Name="Horse" Relationship="Self.FK__Feeding__HorseID__59063A47" FromRole="Feeding" ToRole="Horse" />
+        </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="FoodID" />
+          </Key>
+          <Property Name="FoodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Feeding" Relationship="Self.FK__Feeding__FoodID__5AEE82B9" FromRole="Food" ToRole="Feeding" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CoachID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="InfoCoach" Relationship="Self.FK__Group__CoachID__4CA06362" FromRole="Group" ToRole="InfoCoach" />
+          <NavigationProperty Name="InfoGroup" Relationship="Self.FK__InfoGroup__Group__4F7CD00D" FromRole="Group" ToRole="InfoGroup" />
+          <NavigationProperty Name="Training" Relationship="Self.FK__Training__GroupI__5535A963" FromRole="Group" ToRole="Training" />
+        </EntityType>
+        <EntityType Name="Horse">
+          <Key>
+            <PropertyRef Name="HorseID" />
+          </Key>
+          <Property Name="HorseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HorseName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HorseAge" Type="Int32" Nullable="false" />
+          <Property Name="SuitID" Type="Int32" Nullable="false" />
+          <Property Name="BreedID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Breed" Relationship="Self.FK__Horse__BreedID__440B1D61" FromRole="Horse" ToRole="Breed" />
+          <NavigationProperty Name="Feeding" Relationship="Self.FK__Feeding__HorseID__59063A47" FromRole="Horse" ToRole="Feeding" />
+          <NavigationProperty Name="Suit" Relationship="Self.FK__Horse__SuitID__4316F928" FromRole="Horse" ToRole="Suit" />
+          <NavigationProperty Name="InfoGroup" Relationship="Self.FK__InfoGroup__Horse__5165187F" FromRole="Horse" ToRole="InfoGroup" />
+        </EntityType>
+        <EntityType Name="InfoCoach">
+          <Key>
+            <PropertyRef Name="CoachID" />
+          </Key>
+          <Property Name="CoachID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CoachSurname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CoachName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CoachPatronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CoachAge" Type="Int32" Nullable="false" />
+          <Property Name="CoachEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CoachPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="Self.FK__Group__CoachID__4CA06362" FromRole="InfoCoach" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="InfoGroup">
+          <Key>
+            <PropertyRef Name="InfoGroupID" />
+          </Key>
+          <Property Name="InfoGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <Property Name="SportsmanID" Type="Int32" Nullable="false" />
+          <Property Name="HorseID" Type="Int32" Nullable="false" />
+          <Property Name="DivisionOfTheGroupID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DivisionOfTheGroup" Relationship="Self.FK__InfoGroup__Divis__52593CB8" FromRole="InfoGroup" ToRole="DivisionOfTheGroup" />
+          <NavigationProperty Name="Group" Relationship="Self.FK__InfoGroup__Group__4F7CD00D" FromRole="InfoGroup" ToRole="Group" />
+          <NavigationProperty Name="Horse" Relationship="Self.FK__InfoGroup__Horse__5165187F" FromRole="InfoGroup" ToRole="Horse" />
+          <NavigationProperty Name="InfoSportsman" Relationship="Self.FK__InfoGroup__Sport__5070F446" FromRole="InfoGroup" ToRole="InfoSportsman" />
+        </EntityType>
         <EntityType Name="InfoSportsman">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="SportsmanID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Age" Type="Int32" Nullable="false" />
-          <Property Name="HorseName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="Self.FK__User__InfoId__398D8EEE" FromRole="InfoSportsman" ToRole="User" />
+          <Property Name="SportsmanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SportsmanSurname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SportsmanName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SportsmanPatronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SportsmanAge" Type="Int32" Nullable="false" />
+          <Property Name="SportsmanEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SportsmanPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="InfoGroup" Relationship="Self.FK__InfoGroup__Sport__5070F446" FromRole="InfoSportsman" ToRole="InfoGroup" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__User__UserRoleID__5DCAEF64" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Space">
+          <Key>
+            <PropertyRef Name="SpaceID" />
+          </Key>
+          <Property Name="SpaceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpaceName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Training" Relationship="Self.FK__Training__SpaceI__5629CD9C" FromRole="Space" ToRole="Training" />
+        </EntityType>
+        <EntityType Name="Suit">
+          <Key>
+            <PropertyRef Name="SuitID" />
+          </Key>
+          <Property Name="SuitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SuitName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Horse" Relationship="Self.FK__Horse__SuitID__4316F928" FromRole="Suit" ToRole="Horse" />
+        </EntityType>
+        <EntityType Name="Training">
+          <Key>
+            <PropertyRef Name="TrainingID" />
+          </Key>
+          <Property Name="TrainingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <Property Name="SpaceID" Type="Int32" Nullable="false" />
+          <Property Name="TimeTraining" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="Self.FK__Training__GroupI__5535A963" FromRole="Training" ToRole="Group" />
+          <NavigationProperty Name="Space" Relationship="Self.FK__Training__SpaceI__5629CD9C" FromRole="Training" ToRole="Space" />
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="InfoId" Type="Int32" />
-          <NavigationProperty Name="InfoSportsman" Relationship="Self.FK__User__InfoId__398D8EEE" FromRole="User" ToRole="InfoSportsman" />
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserSurname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPatronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserLogin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserRoleID" Type="Int32" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__User__UserRoleID__5DCAEF64" FromRole="User" ToRole="Role" />
         </EntityType>
-        <Association Name="FK__User__InfoId__398D8EEE">
-          <End Role="InfoSportsman" Type="Self.InfoSportsman" Multiplicity="0..1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
+        <Association Name="FK__Horse__BreedID__440B1D61">
+          <End Role="Breed" Type="Self.Breed" Multiplicity="1" />
+          <End Role="Horse" Type="Self.Horse" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="InfoSportsman">
-              <PropertyRef Name="Id" />
+            <Principal Role="Breed">
+              <PropertyRef Name="BreedID" />
             </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="InfoId" />
+            <Dependent Role="Horse">
+              <PropertyRef Name="BreedID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SportSchoolEntities1" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK__InfoGroup__Divis__52593CB8">
+          <End Role="DivisionOfTheGroup" Type="Self.DivisionOfTheGroup" Multiplicity="1" />
+          <End Role="InfoGroup" Type="Self.InfoGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DivisionOfTheGroup">
+              <PropertyRef Name="DivisionOfTheGroupID" />
+            </Principal>
+            <Dependent Role="InfoGroup">
+              <PropertyRef Name="DivisionOfTheGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feeding__DosageF__59FA5E80">
+          <End Role="DosageFood" Type="Self.DosageFood" Multiplicity="1" />
+          <End Role="Feeding" Type="Self.Feeding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DosageFood">
+              <PropertyRef Name="DosageFoodID" />
+            </Principal>
+            <Dependent Role="Feeding">
+              <PropertyRef Name="DosageFoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feeding__FoodID__5AEE82B9">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="Feeding" Type="Self.Feeding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodID" />
+            </Principal>
+            <Dependent Role="Feeding">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feeding__HorseID__59063A47">
+          <End Role="Horse" Type="Self.Horse" Multiplicity="1" />
+          <End Role="Feeding" Type="Self.Feeding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horse">
+              <PropertyRef Name="HorseID" />
+            </Principal>
+            <Dependent Role="Feeding">
+              <PropertyRef Name="HorseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Group__CoachID__4CA06362">
+          <End Role="InfoCoach" Type="Self.InfoCoach" Multiplicity="1" />
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoCoach">
+              <PropertyRef Name="CoachID" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="CoachID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoGroup__Group__4F7CD00D">
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="InfoGroup" Type="Self.InfoGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="InfoGroup">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Training__GroupI__5535A963">
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="Training" Type="Self.Training" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Training">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horse__SuitID__4316F928">
+          <End Role="Suit" Type="Self.Suit" Multiplicity="1" />
+          <End Role="Horse" Type="Self.Horse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suit">
+              <PropertyRef Name="SuitID" />
+            </Principal>
+            <Dependent Role="Horse">
+              <PropertyRef Name="SuitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoGroup__Horse__5165187F">
+          <End Role="Horse" Type="Self.Horse" Multiplicity="1" />
+          <End Role="InfoGroup" Type="Self.InfoGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horse">
+              <PropertyRef Name="HorseID" />
+            </Principal>
+            <Dependent Role="InfoGroup">
+              <PropertyRef Name="HorseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoGroup__Sport__5070F446">
+          <End Role="InfoSportsman" Type="Self.InfoSportsman" Multiplicity="1" />
+          <End Role="InfoGroup" Type="Self.InfoGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoSportsman">
+              <PropertyRef Name="SportsmanID" />
+            </Principal>
+            <Dependent Role="InfoGroup">
+              <PropertyRef Name="SportsmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__UserRoleID__5DCAEF64">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Training__SpaceI__5629CD9C">
+          <End Role="Space" Type="Self.Space" Multiplicity="1" />
+          <End Role="Training" Type="Self.Training" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Space">
+              <PropertyRef Name="SpaceID" />
+            </Principal>
+            <Dependent Role="Training">
+              <PropertyRef Name="SpaceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HorseSchoolPPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Breed" EntityType="Self.Breed" />
+          <EntitySet Name="DivisionOfTheGroup" EntityType="Self.DivisionOfTheGroup" />
+          <EntitySet Name="DosageFood" EntityType="Self.DosageFood" />
+          <EntitySet Name="Feeding" EntityType="Self.Feeding" />
+          <EntitySet Name="Food" EntityType="Self.Food" />
+          <EntitySet Name="Group" EntityType="Self.Group" />
+          <EntitySet Name="Horse" EntityType="Self.Horse" />
+          <EntitySet Name="InfoCoach" EntityType="Self.InfoCoach" />
+          <EntitySet Name="InfoGroup" EntityType="Self.InfoGroup" />
           <EntitySet Name="InfoSportsman" EntityType="Self.InfoSportsman" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Space" EntityType="Self.Space" />
+          <EntitySet Name="Suit" EntityType="Self.Suit" />
+          <EntitySet Name="Training" EntityType="Self.Training" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK__User__InfoId__398D8EEE" Association="Self.FK__User__InfoId__398D8EEE">
+          <AssociationSet Name="FK__Horse__BreedID__440B1D61" Association="Self.FK__Horse__BreedID__440B1D61">
+            <End Role="Breed" EntitySet="Breed" />
+            <End Role="Horse" EntitySet="Horse" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoGroup__Divis__52593CB8" Association="Self.FK__InfoGroup__Divis__52593CB8">
+            <End Role="DivisionOfTheGroup" EntitySet="DivisionOfTheGroup" />
+            <End Role="InfoGroup" EntitySet="InfoGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feeding__DosageF__59FA5E80" Association="Self.FK__Feeding__DosageF__59FA5E80">
+            <End Role="DosageFood" EntitySet="DosageFood" />
+            <End Role="Feeding" EntitySet="Feeding" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feeding__FoodID__5AEE82B9" Association="Self.FK__Feeding__FoodID__5AEE82B9">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="Feeding" EntitySet="Feeding" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feeding__HorseID__59063A47" Association="Self.FK__Feeding__HorseID__59063A47">
+            <End Role="Horse" EntitySet="Horse" />
+            <End Role="Feeding" EntitySet="Feeding" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Group__CoachID__4CA06362" Association="Self.FK__Group__CoachID__4CA06362">
+            <End Role="InfoCoach" EntitySet="InfoCoach" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoGroup__Group__4F7CD00D" Association="Self.FK__InfoGroup__Group__4F7CD00D">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="InfoGroup" EntitySet="InfoGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Training__GroupI__5535A963" Association="Self.FK__Training__GroupI__5535A963">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Training" EntitySet="Training" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horse__SuitID__4316F928" Association="Self.FK__Horse__SuitID__4316F928">
+            <End Role="Suit" EntitySet="Suit" />
+            <End Role="Horse" EntitySet="Horse" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoGroup__Horse__5165187F" Association="Self.FK__InfoGroup__Horse__5165187F">
+            <End Role="Horse" EntitySet="Horse" />
+            <End Role="InfoGroup" EntitySet="InfoGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoGroup__Sport__5070F446" Association="Self.FK__InfoGroup__Sport__5070F446">
             <End Role="InfoSportsman" EntitySet="InfoSportsman" />
+            <End Role="InfoGroup" EntitySet="InfoGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__UserRoleID__5DCAEF64" Association="Self.FK__User__UserRoleID__5DCAEF64">
+            <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Training__SpaceI__5629CD9C" Association="Self.FK__Training__SpaceI__5629CD9C">
+            <End Role="Space" EntitySet="Space" />
+            <End Role="Training" EntitySet="Training" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -95,25 +753,150 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище SportSchoolModelContainer" CdmEntityContainer="SportSchoolEntities1">
-          <EntitySetMapping Name="InfoSportsman">
-            <EntityTypeMapping TypeName="SportSchoolModel.InfoSportsman">
-              <MappingFragment StoreEntitySet="InfoSportsman">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Age" ColumnName="Age" />
+        <EntityContainerMapping StorageEntityContainer="Хранилище HorseSchoolPPModelContainer" CdmEntityContainer="HorseSchoolPPEntities">
+          <EntitySetMapping Name="Breed">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.Breed">
+              <MappingFragment StoreEntitySet="Breed">
+                <ScalarProperty Name="BreedID" ColumnName="BreedID" />
+                <ScalarProperty Name="BreedName" ColumnName="BreedName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DivisionOfTheGroup">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.DivisionOfTheGroup">
+              <MappingFragment StoreEntitySet="DivisionOfTheGroup">
+                <ScalarProperty Name="DivisionOfTheGroupID" ColumnName="DivisionOfTheGroupID" />
+                <ScalarProperty Name="DivisionOfTheGroupName" ColumnName="DivisionOfTheGroupName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DosageFood">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.DosageFood">
+              <MappingFragment StoreEntitySet="DosageFood">
+                <ScalarProperty Name="DosageFoodID" ColumnName="DosageFoodID" />
+                <ScalarProperty Name="DosageQuantity" ColumnName="DosageQuantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feeding">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.Feeding">
+              <MappingFragment StoreEntitySet="Feeding">
+                <ScalarProperty Name="FeedingID" ColumnName="FeedingID" />
+                <ScalarProperty Name="HorseID" ColumnName="HorseID" />
+                <ScalarProperty Name="DosageFoodID" ColumnName="DosageFoodID" />
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="TimeFeeding" ColumnName="TimeFeeding" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Food">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.Food">
+              <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Group">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="CoachID" ColumnName="CoachID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Horse">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.Horse">
+              <MappingFragment StoreEntitySet="Horse">
+                <ScalarProperty Name="HorseID" ColumnName="HorseID" />
                 <ScalarProperty Name="HorseName" ColumnName="HorseName" />
+                <ScalarProperty Name="HorseAge" ColumnName="HorseAge" />
+                <ScalarProperty Name="SuitID" ColumnName="SuitID" />
+                <ScalarProperty Name="BreedID" ColumnName="BreedID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoCoach">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.InfoCoach">
+              <MappingFragment StoreEntitySet="InfoCoach">
+                <ScalarProperty Name="CoachID" ColumnName="CoachID" />
+                <ScalarProperty Name="CoachSurname" ColumnName="CoachSurname" />
+                <ScalarProperty Name="CoachName" ColumnName="CoachName" />
+                <ScalarProperty Name="CoachPatronymic" ColumnName="CoachPatronymic" />
+                <ScalarProperty Name="CoachAge" ColumnName="CoachAge" />
+                <ScalarProperty Name="CoachEmail" ColumnName="CoachEmail" />
+                <ScalarProperty Name="CoachPhone" ColumnName="CoachPhone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoGroup">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.InfoGroup">
+              <MappingFragment StoreEntitySet="InfoGroup">
+                <ScalarProperty Name="InfoGroupID" ColumnName="InfoGroupID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="SportsmanID" ColumnName="SportsmanID" />
+                <ScalarProperty Name="HorseID" ColumnName="HorseID" />
+                <ScalarProperty Name="DivisionOfTheGroupID" ColumnName="DivisionOfTheGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoSportsman">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.InfoSportsman">
+              <MappingFragment StoreEntitySet="InfoSportsman">
+                <ScalarProperty Name="SportsmanID" ColumnName="SportsmanID" />
+                <ScalarProperty Name="SportsmanSurname" ColumnName="SportsmanSurname" />
+                <ScalarProperty Name="SportsmanName" ColumnName="SportsmanName" />
+                <ScalarProperty Name="SportsmanPatronymic" ColumnName="SportsmanPatronymic" />
+                <ScalarProperty Name="SportsmanAge" ColumnName="SportsmanAge" />
+                <ScalarProperty Name="SportsmanEmail" ColumnName="SportsmanEmail" />
+                <ScalarProperty Name="SportsmanPhone" ColumnName="SportsmanPhone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Space">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.Space">
+              <MappingFragment StoreEntitySet="Space">
+                <ScalarProperty Name="SpaceID" ColumnName="SpaceID" />
+                <ScalarProperty Name="SpaceName" ColumnName="SpaceName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suit">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.Suit">
+              <MappingFragment StoreEntitySet="Suit">
+                <ScalarProperty Name="SuitID" ColumnName="SuitID" />
+                <ScalarProperty Name="SuitName" ColumnName="SuitName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Training">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.Training">
+              <MappingFragment StoreEntitySet="Training">
+                <ScalarProperty Name="TrainingID" ColumnName="TrainingID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="SpaceID" ColumnName="SpaceID" />
+                <ScalarProperty Name="TimeTraining" ColumnName="TimeTraining" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="SportSchoolModel.User">
+            <EntityTypeMapping TypeName="HorseSchoolPPModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="InfoId" ColumnName="InfoId" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPatronymic" ColumnName="UserPatronymic" />
+                <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

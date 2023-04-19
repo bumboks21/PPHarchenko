@@ -17,16 +17,18 @@ namespace SchoolApplication.DbEntity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public InfoSportsman()
         {
-            this.User = new HashSet<User>();
+            this.InfoGroup = new HashSet<InfoGroup>();
         }
     
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public int Age { get; set; }
-        public string HorseName { get; set; }
+        public int SportsmanID { get; set; }
+        public string SportsmanSurname { get; set; }
+        public string SportsmanName { get; set; }
+        public string SportsmanPatronymic { get; set; }
+        public int SportsmanAge { get; set; }
+        public string SportsmanEmail { get; set; }
+        public string SportsmanPhone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<InfoGroup> InfoGroup { get; set; }
     }
 }

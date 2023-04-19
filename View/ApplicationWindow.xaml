@@ -17,15 +17,14 @@
         <Button Grid.Row="0" Name="BtnAddData" 
                 Click="BtnAddData_Click"
                 Content="Добавить" 
-                  Background="RoyalBlue"
+                Background="#FF5BDF4F"
                 Width="150" 
                   FontSize="20"
                 HorizontalAlignment="Center"
                 Height="40" Margin="240,0,0,0" 
                 />
         <Button Grid.Row="0" Name="BtnEditData"
-                Click="BtnEditData_Click"
-                  Background="RoyalBlue"
+              Background="#FF5BDF4F"
                 Content="Редактировать" 
                 Width="150" 
                 Height="40" 
@@ -35,7 +34,7 @@
         <Button Grid.Row="0" Name="BtnDelete"
                 Click="BtnDelete_Click"
                 Content="Удалить"
-                  Background="RoyalBlue"
+                Background="#FF5BDF4F"
                 FontSize="20"
                 Width="150" 
                 Height="40" HorizontalAlignment="Left" Margin="260,0,0,0" 
@@ -46,20 +45,25 @@
             ItemsSource="{Binding InfoSportsman}">
                 <DataGrid.Columns>
                     <DataGridTextColumn
-                    Header="Имя спортсмена"
-                    Binding="{Binding Name}"
+                    Header="Фамилия спортсмена"
+                    Binding="{Binding SportsmanSurname}"
                     />
                     <DataGridTextColumn
-                    Header="Фамилия спортсмена"
-                    Binding="{Binding Surname}" />
+                    Header="Имя спортсмена"
+                    Binding="{Binding SportsmanName}" />
                     <DataGridTextColumn
+                    Header="Отчество спортсмена"
+                    Binding="{Binding SportsmanPatronymic}" />
+                <DataGridTextColumn
                     Header="Возраст спортсмена"
-                    Binding="{Binding Age}" />
-
-                    <DataGridTextColumn
-                    Header="Лошадь закрепленная за спортсменом"
-                    Binding="{Binding HorseName}" />
-                </DataGrid.Columns>
+                    Binding="{Binding SportsmanAge}" />
+                <DataGridTextColumn
+                    Header="Эл. почта"
+                    Binding="{Binding SportsmanEmail}" />
+                <DataGridTextColumn
+                    Header="Телефон"
+                    Binding="{Binding SportsmanPhone}" />
+            </DataGrid.Columns>
             </DataGrid>
     </Grid>
 </Window>

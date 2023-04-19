@@ -48,12 +48,12 @@ namespace SchoolApplication.View
 
         private void BtnSend_Click(object sender, RoutedEventArgs e)
         {
-            using (var db = new SportSchoolEntities1())
+            using (var db = new HorseSchoolPPEntities())
             {
                 try
                 {
 
-                    var validateRes = ValidateEntity();
+                   var validateRes = ValidateEntity();
                     if (validateRes.Length > 0)
                     {
                         MessageBox.Show(validateRes.ToString(), "Информация", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -78,21 +78,29 @@ namespace SchoolApplication.View
 
             if (_infoSportsman != null)
             {
-                if (string.IsNullOrEmpty(_infoSportsman.Name))
-                {
-                    errors.AppendLine("Поле Имя спортсмена не может быть пустым!");
-                }
-                if (string.IsNullOrEmpty(_infoSportsman.Surname))
+                if (string.IsNullOrEmpty(_infoSportsman.SportsmanSurname))
                 {
                     errors.AppendLine("Поле Фамилия спортсмена не может быть пустым!");
                 }
-                if (_infoSportsman.Age <= 0)
+                if (string.IsNullOrEmpty(_infoSportsman.SportsmanName))
+                {
+                    errors.AppendLine("Поле Имя спортсмена не может быть пустым!");
+                }
+                if (string.IsNullOrEmpty(_infoSportsman.SportsmanPatronymic))
+                {
+                    errors.AppendLine("Поле Отчество спортсмена не может быть пустым!");
+                }
+                if (_infoSportsman.SportsmanAge <= 0)
                 { 
                     errors.AppendLine("Поле Возраст спортсмена не может быть пустым");
                 }
-                if (string.IsNullOrEmpty(_infoSportsman.HorseName))
+                if (string.IsNullOrEmpty(_infoSportsman.SportsmanEmail))
                 {
-                    errors.AppendLine("Поле Имя лошади не может быть пустым!");
+                    errors.AppendLine("Поле Эл.почта не может быть пустым!");
+                }
+                if (string.IsNullOrEmpty(_infoSportsman.SportsmanPhone))
+                {
+                    errors.AppendLine("Поле Телефон спортсмена не может быть пустым!");
                 }
             }
             return errors;

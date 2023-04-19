@@ -14,11 +14,14 @@ namespace SchoolApplication.DbEntity
     
     public partial class User
     {
-        public int Id { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public Nullable<int> InfoId { get; set; }
+        public int UserID { get; set; }
+        public string UserSurname { get; set; }
+        public string UserName { get; set; }
+        public string UserPatronymic { get; set; }
+        public string UserLogin { get; set; }
+        public string UserPassword { get; set; }
+        public Nullable<int> UserRoleID { get; set; }
     
-        public virtual InfoSportsman InfoSportsman { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

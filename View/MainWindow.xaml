@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SchoolApplication"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-         Title="СШ по конному спорту: Авторизация" Height="450" Width="400">
+         Title="СШ по конному спорту: Авторизация" Height="450" Width="400" Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="120" />
@@ -20,7 +20,7 @@
         <Label 
             FontSize="32"
             FontFamily="Times New Roman"
-            Foreground="RoyalBlue"
+            Foreground="#FF5BDF4F"
             FontWeight="Bold"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
@@ -56,6 +56,8 @@
             Grid.Row="5"
             Height="32"
             Width="90"
+            FontSize="12"
+            Background="#FF5BDF4F"
             Content="{Binding BtnDesc}"
             Margin="0,10,10,0"
             HorizontalAlignment="Right"

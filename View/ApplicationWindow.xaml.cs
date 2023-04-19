@@ -21,12 +21,12 @@ namespace SchoolApplication.View
     /// </summary>
     public partial class ApplicationWindow : Window
     {
-        public ApplicationWindow(User user)
+        public ApplicationWindow()
         {
             InitializeComponent();
 
 
-            this.DataContext = new AppVM(user);
+            this.DataContext = new AppVM();
         }
 
         private void BtnAddData_Click(object sender, RoutedEventArgs e)

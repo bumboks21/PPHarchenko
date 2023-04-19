@@ -64,11 +64,104 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\CoachChangeWindow.xaml.cs">
+      <DependentUpon>CoachChangeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CoachWindow.xaml.cs">
+      <DependentUpon>CoachWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DosageFoodChangeWindow.xaml.cs">
+      <DependentUpon>DosageFoodChangeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DosageFoodWindow.xaml.cs">
+      <DependentUpon>DosageFoodWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FeedingChangeWindow.xaml.cs">
+      <DependentUpon>FeedingChangeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FeedingWindow.xaml.cs">
+      <DependentUpon>FeedingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FoodChangeWindow.xaml.cs">
+      <DependentUpon>FoodChangeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FoodWindow.xaml.cs">
+      <DependentUpon>FoodWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GroupChangeWindow.xaml.cs">
+      <DependentUpon>GroupChangeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GroupWindow.xaml.cs">
+      <DependentUpon>GroupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HorseChangeWindow.xaml.cs">
+      <DependentUpon>HorseChangeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HorseWindow.xaml.cs">
+      <DependentUpon>HorseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SelectWindow.xaml.cs">
+      <DependentUpon>SelectWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TrainingChangeWindow.xaml.cs">
+      <DependentUpon>TrainingChangeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TrainingWindow.xaml.cs">
+      <DependentUpon>TrainingWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\ApplicationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ChangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CoachChangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CoachWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DosageFoodChangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DosageFoodWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FeedingChangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FeedingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FoodChangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FoodWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GroupChangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GroupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HorseChangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HorseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -80,8 +173,41 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DbEntity\Breed.cs">
+      <DependentUpon>SportSchoolModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbEntity\DbStorage.cs" />
+    <Compile Include="DbEntity\DivisionOfTheGroup.cs">
+      <DependentUpon>SportSchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbEntity\DosageFood.cs">
+      <DependentUpon>SportSchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbEntity\Feeding.cs">
+      <DependentUpon>SportSchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbEntity\Food.cs">
+      <DependentUpon>SportSchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbEntity\Group.cs">
+      <DependentUpon>SportSchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbEntity\Horse.cs">
+      <DependentUpon>SportSchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbEntity\InfoCoach.cs">
+      <DependentUpon>SportSchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbEntity\InfoGroup.cs">
+      <DependentUpon>SportSchoolModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbEntity\InfoSportsman.cs">
+      <DependentUpon>SportSchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbEntity\Role.cs">
+      <DependentUpon>SportSchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbEntity\Space.cs">
       <DependentUpon>SportSchoolModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DbEntity\SportSchoolModel.Context.cs">
@@ -99,6 +225,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SportSchoolModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DbEntity\Suit.cs">
+      <DependentUpon>SportSchoolModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbEntity\Training.cs">
+      <DependentUpon>SportSchoolModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbEntity\User.cs">
       <DependentUpon>SportSchoolModel.tt</DependentUpon>
     </Compile>
@@ -115,6 +247,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\SelectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TrainingChangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TrainingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

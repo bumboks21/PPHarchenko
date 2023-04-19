@@ -13,10 +13,10 @@ namespace SchoolApplication.DbEntity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SportSchoolEntities1 : DbContext
+    public partial class HorseSchoolPPEntities : DbContext
     {
-        public SportSchoolEntities1()
-            : base("name=SportSchoolEntities1")
+        public HorseSchoolPPEntities()
+            : base("name=HorseSchoolPPEntities")
         {
         }
     
@@ -25,7 +25,20 @@ namespace SchoolApplication.DbEntity
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Breed> Breed { get; set; }
+        public virtual DbSet<DivisionOfTheGroup> DivisionOfTheGroup { get; set; }
+        public virtual DbSet<DosageFood> DosageFood { get; set; }
+        public virtual DbSet<Feeding> Feeding { get; set; }
+        public virtual DbSet<Food> Food { get; set; }
+        public virtual DbSet<Group> Group { get; set; }
+        public virtual DbSet<Horse> Horse { get; set; }
+        public virtual DbSet<InfoCoach> InfoCoach { get; set; }
+        public virtual DbSet<InfoGroup> InfoGroup { get; set; }
         public virtual DbSet<InfoSportsman> InfoSportsman { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Space> Space { get; set; }
+        public virtual DbSet<Suit> Suit { get; set; }
+        public virtual DbSet<Training> Training { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

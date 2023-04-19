@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\androidst\Image\SchoolApp-main\SchoolApplication\App.xaml
-31113218694
+18-1602068823
 2-745057181
-17-182463851
+451934881358
 18-318268321
-View\ApplicationWindow.xaml;View\ChangeWindow.xaml;View\MainWindow.xaml;
+View\ApplicationWindow.xaml;View\ChangeWindow.xaml;View\CoachChangeWindow.xaml;View\CoachWindow.xaml;View\DosageFoodChangeWindow.xaml;View\DosageFoodWindow.xaml;View\FeedingChangeWindow.xaml;View\FeedingWindow.xaml;View\FoodChangeWindow.xaml;View\FoodWindow.xaml;View\GroupChangeWindow.xaml;View\GroupWindow.xaml;View\HorseChangeWindow.xaml;View\HorseWindow.xaml;View\MainWindow.xaml;View\SelectWindow.xaml;View\TrainingChangeWindow.xaml;View\TrainingWindow.xaml;
 
 True
 
